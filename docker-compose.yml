@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  rabbitmq-service:
+    image: rabbitmq:3-management
+    ports:
+      - "8080:15672"
+      - "5672:5672"
+    #volumes:
+     # - ./docker-data/rabbitmq/database-dir:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
+    networks:
+      - rabbitm-network
+
+networks: 
+  rabbitm-network:
+    driver: bridge
